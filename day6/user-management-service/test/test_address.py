@@ -31,6 +31,7 @@ class UserTest(unittest.TestCase):
 
     def test_get_addresses(self):
         #validate that one address is returned in the response
+        response = self.client.get(ADDRESSES_URL, )
         pass
 
     def test_create_address_success(self):
