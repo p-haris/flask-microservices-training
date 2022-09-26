@@ -33,4 +33,4 @@ class AddressApi(Resource):
 		commit_and_close_db_connection(conn)
 		return {'message': f'Address [{address["id"]}] deleted from the database'}
 
-restful_api.add_resource(AddressApi, '/api/addresses/<int:id>')
+restful_api.add_resource(AddressApi, '/api/users/<int:user_id>/addresses/<int:id>')
