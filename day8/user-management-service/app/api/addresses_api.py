@@ -7,11 +7,12 @@ from ..schemas.address_schema import AddressSchema
 from ..exceptions import InvalidAddressPayload
 from ..models.address import Address
 from app import restful_api
+from ..decorators.security import admin_or_self_required
 
 address_schema = AddressSchema()
 
 class AddressesApi(Resource):
-	decorators = [jwt_required()]
+	decorators = [jwt_required(), admin_or_self_required(user_id_param='user_id')]
 	def get(self, user_id):
 		conn = get_db_connection()
 		addresses = address_db.get_addresses(conn, user_id)
