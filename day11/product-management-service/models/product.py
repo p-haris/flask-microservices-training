@@ -1,10 +1,11 @@
 #To create a Product(attributes) Model 
 
 from app import db
-from marshmallow_enum import Enum
+import enum 
+from sqlalchemy import Enum
 # to choose oneof for field currency
 
-class currency(Enum):
+class currency(enum.Enum):
     rupees = 'rupees'
     dollars = 'dollars'
     euros = 'euros'
@@ -15,4 +16,5 @@ class Product(db.Model):
     name = db.Column(db.String(99))
     description = db.Column(db.String(255), nullable=True)
     price = db.Column(db.Integer)
-    currency = db.Column(db.OneOf())
+    currency = db.Column(db.Enum(currency))
+    stock = 
