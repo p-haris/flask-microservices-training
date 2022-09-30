@@ -18,3 +18,6 @@ restful_api = CustomApi(app)
 flask_bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
 db = SQLAlchemy(app)
+
+#since we created and now sqlachemy object is now available, now import model.
+from .models import product
