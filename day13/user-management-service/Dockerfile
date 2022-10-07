@@ -4,6 +4,7 @@ LABEL maintainer="saurav.samantray@gmail.com"
 WORKDIR /user-management-service
 
 COPY requirements.txt requirements.txt
+#copy host requirements.tct into isolated env WORKDIR /user-management-service. 
 RUN pip3 install -r requirements.txt
 
 COPY . .
